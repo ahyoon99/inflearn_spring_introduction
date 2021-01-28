@@ -9,7 +9,16 @@ import Ahyoon.hellospring.repository.MemoryMemberRepository;
 
 public class MemberService {
 
-	private final MemberRepository memberRepository = new MemoryMemberRepository();
+	// MemberService.java의 memberRepository와 MemberServiceTest의 memberRepository가 다른 repository라는 문제점이 있다.
+	// private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+	// 그래서 13줄 코드를 16~21줄 코드로 바꿔야 한다.
+	private final MemberRepository memberRepository;
+
+	// memberService의 입장에서 member repository를 외부에서 넣어준다. -> DI(dependency injection)라고 한다.
+	public MemberService(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
 
 	/**
 	 * 회원가입
