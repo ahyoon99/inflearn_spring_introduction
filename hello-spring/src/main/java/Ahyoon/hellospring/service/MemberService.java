@@ -10,7 +10,7 @@ import Ahyoon.hellospring.domain.Member;
 import Ahyoon.hellospring.repository.MemberRepository;
 import Ahyoon.hellospring.repository.MemoryMemberRepository;
 
-@Service	// Service 안에 Component가 들어 있다.
+// @Service	// Service 안에 Component가 들어 있다.
 public class MemberService {
 
 	// MemberService.java의 memberRepository와 MemberServiceTest의 memberRepository가 다른 repository라는 문제점이 있다.
@@ -20,10 +20,10 @@ public class MemberService {
 
 	// 그래서 1번 코드를 2번 코드로 바꿔야 한다.
 	/* 2번 코드 시작 */
-	private final MemberRepository memberRepository;
+	private MemberRepository memberRepository;
 
 	// memberService의 입장에서 member repository를 외부에서 넣어준다. -> DI(dependency injection)라고 한다.
-	@Autowired
+	// @Autowired
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}

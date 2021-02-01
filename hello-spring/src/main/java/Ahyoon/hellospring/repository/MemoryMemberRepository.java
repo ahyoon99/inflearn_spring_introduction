@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import Ahyoon.hellospring.domain.Member;
 
-@Repository	// Repository 안에 Component가 들어 있다.
+//@Repository	// Repository 안에 Component가 들어 있다.
 public class MemoryMemberRepository implements MemberRepository{
 
 	private static Map<Long, Member> store = new HashMap<>();
