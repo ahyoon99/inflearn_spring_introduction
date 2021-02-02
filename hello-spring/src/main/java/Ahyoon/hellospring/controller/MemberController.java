@@ -2,7 +2,10 @@ package Ahyoon.hellospring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import Ahyoon.hellospring.domain.Member;
 import Ahyoon.hellospring.service.MemberService;
 
 @Controller
@@ -26,4 +29,21 @@ public class MemberController {
 	// 	this.memberService = memberService;
 	// }
 
+	@GetMapping("members/new")	// GetMapping : 조회할 때 사용한다.
+	public String createForm(){
+		return "members/createMemberForm";
+	}
+
+	@PostMapping("/members/new")	// PostMapping : 데이터를 form같은 곳에 넣어서 전달 할 때 사용한다.
+	public String create(MemberForm form){
+		Member member = new Member();
+		member.setName(form.getName());
+
+		// System.out.println("memeber = "+member.getName());	// 확인용 코드
+
+		memberService.join(member);
+
+		return "redirect:/";	// 회원가입이 끝났으니 홈화면으로 돌려버리는 것이다.
+
+	}
 }
