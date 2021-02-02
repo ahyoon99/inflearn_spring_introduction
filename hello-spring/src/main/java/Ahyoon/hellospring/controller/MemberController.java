@@ -1,7 +1,10 @@
 package Ahyoon.hellospring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -45,5 +48,12 @@ public class MemberController {
 
 		return "redirect:/";	// 회원가입이 끝났으니 홈화면으로 돌려버리는 것이다.
 
+	}
+
+	@GetMapping("/members")
+	public String list(Model model){
+		List<Member> members = memberService.findMembers();
+		model.addAttribute("members", members);
+		return "members/memberList";
 	}
 }
