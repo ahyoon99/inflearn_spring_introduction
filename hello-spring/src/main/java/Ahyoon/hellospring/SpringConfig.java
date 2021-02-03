@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import Ahyoon.hellospring.repository.JdbcMemberRepository;
+import Ahyoon.hellospring.repository.JdbcTemplateMemberRepository;
 import Ahyoon.hellospring.repository.MemberRepository;
 import Ahyoon.hellospring.repository.MemoryMemberRepository;
 import Ahyoon.hellospring.service.MemberService;
@@ -30,7 +31,8 @@ public class SpringConfig {
 	public MemberRepository memberRepository(){
 		// return new MemoryMemberRepository();
 		// return new DBMemberRepository();
-		return new JdbcMemberRepository(dataSource);
+		// return new JdbcMemberRepository(dataSource);
+		return new JdbcTemplateMemberRepository(dataSource);
 	}
 
 }
