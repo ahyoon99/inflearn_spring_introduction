@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import Ahyoon.hellospring.domain.Member;
 import Ahyoon.hellospring.repository.MemberRepository;
 import Ahyoon.hellospring.repository.MemoryMemberRepository;
 
+@Transactional	// JPA를 사용하려면 @transactional이 꼭 있어야한다. 필요한 함수 앞에만 붙여줘도 되긴 하다.
 // @Service	// Service 안에 Component가 들어 있다.
 public class MemberService {
 
