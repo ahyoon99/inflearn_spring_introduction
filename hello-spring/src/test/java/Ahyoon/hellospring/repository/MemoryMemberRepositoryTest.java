@@ -8,6 +8,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;	// 검증방법 4번 하기위해 추가해주었다.
+
+// import org.assertj.core.api.Assertions;
+
+
 import Ahyoon.hellospring.domain.Member;
 
 class MemoryMemberRepositoryTest {
@@ -35,7 +40,7 @@ class MemoryMemberRepositoryTest {
 		Assertions.assertEquals(member, result);
 
 		// 검증 방법 3
-		// Assertions.assertThat(member).isEqualTo(result);
+		// Assertions.assertThat(member).isEqualTo(result);	// import org.assertj.core.api.Assertions; 이거 추가하면 된다고 하는데 안된다...
 
 		// 검증 방법 4 : 방법 3에서 static import를 해준다.
 		// assertThat(member).isEqualTo(result);
